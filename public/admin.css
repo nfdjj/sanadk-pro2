@@ -1,0 +1,1070 @@
+/* أنماط خاصة بلوحة تحكم المدير */
+
+/* لوحة التحكم */
+.admin-dashboard {
+    background: #f8fafc;
+    padding: 60px 0;
+    min-height: calc(100vh - 70px);
+}
+
+.admin-dashboard h1 {
+    text-align: center;
+    color: #0d1b2a;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.admin-dashboard h1 i {
+    color: #d4af37;
+    margin-left: 15px;
+}
+
+.admin-subtitle {
+    text-align: center;
+    color: #a7b2c0;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* إحصائيات */
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-color: #d4af37;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+.stat-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.stat-info h3 {
+    font-size: 1rem;
+    color: #a7b2c0;
+    margin-bottom: 5px;
+}
+
+.stat-info p {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0d1b2a;
+    line-height: 1;
+}
+
+/* جدول الإدارة */
+.admin-table-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.admin-table-container h2 {
+    text-align: right;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #0d1b2a;
+}
+
+.admin-sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.admin-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.admin-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    margin-bottom: 22px;
+}
+
+.card-header h2 {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+    color: #0d1b2a;
+}
+
+.card-header p {
+    color: #718096;
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.admin-card form + form {
+    margin-top: 18px;
+}
+
+.admin-card input,
+.admin-card textarea {
+    width: 100%;
+    background: #f8fafc;
+}
+
+.admin-table-container h2 i {
+    color: #d4af37;
+    margin-left: 10px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.admin-table thead {
+    background: linear-gradient(135deg, #0d1b2a, #162840);
+    color: white;
+}
+
+.admin-table th {
+    padding: 18px 15px;
+    text-align: right;
+    font-weight: 600;
+    border-bottom: 3px solid #d4af37;
+}
+
+.admin-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background 0.2s;
+}
+
+.admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.admin-table td {
+    padding: 18px 15px;
+    color: #4a5568;
+}
+
+/* Table polish: responsive, zebra rows, ellipsis for long content */
+.admin-table thead th {
+    padding: 14px 18px;
+    font-size: 0.95rem;
+}
+
+.admin-table tbody td {
+    padding: 12px 16px;
+    vertical-align: middle;
+}
+
+.admin-table tbody tr:nth-child(even) {
+    background: #fbfdff;
+}
+
+.admin-table td.description,
+.admin-table td:nth-child(3) {
+    max-width: 420px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-table td:not(.description) {
+    white-space: nowrap;
+}
+
+.admin-table .actions-cell {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.action-btn { padding: 8px 14px; min-width: 92px; }
+.action-btn i { margin-left: 6px; }
+
+/* mobile-friendly table: collapse to cards */
+@media (max-width: 880px) {
+    .admin-table thead { display: none; }
+    .admin-table, .admin-table tbody, .admin-table tr, .admin-table td { display: block; width: 100%; }
+    .admin-table tr { margin-bottom: 14px; border-radius: 12px; box-shadow: 0 6px 18px rgba(14,30,56,0.06); padding: 12px; background: white; }
+    .admin-table td { padding: 10px 12px; text-align: right; }
+    .admin-table td::before { content: attr(data-label); float: left; font-weight: 700; color: #718096; }
+    .admin-table td.description { white-space: normal; }
+    .admin-table .actions-cell { justify-content: flex-start; margin-top: 8px; }
+}
+
+.admin-table td:nth-child(2) {
+    font-weight: 700;
+    color: #0d1b2a;
+}
+
+.admin-table td:nth-child(3) {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-table td:nth-child(4) {
+    color: #a7b2c0;
+    font-size: 0.9rem;
+}
+
+/* أزرار الإجراءات */
+.actions-cell {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.edit-btn {
+    background: #3498db;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.view-btn {
+    background: #3498db;
+    color: white;
+    margin-right: 5px;
+}
+
+.view-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+.section-card.hidden {
+    display: none;
+}
+
+.section-selected-notice {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px 28px;
+    color: #4a5568;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.admin-table .actions-cell {
+    justify-content: flex-end;
+}
+
+.admin-table .action-btn {
+    min-width: 110px;
+}
+
+/* النافذة المنبثقة للتعديل */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #0d1b2a, #162840);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.modal-header h2 i {
+    color: #d4af37;
+    margin-left: 10px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: #d4af37;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+/* نموذج التعديل */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #0d1b2a;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    color: #0d1b2a;
+    transition: border-color 0.3s;
+    background: #f8fafc;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    background: white;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.save-btn,
+.cancel-btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.save-btn {
+    background: #2ecc71;
+    color: white;
+}
+
+.save-btn:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+.cancel-btn {
+    background: #95a5a6;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+/* قسم إدارة الآراء */
+.admin-reviews {
+    background: #f1f5f9;
+    padding: 80px 0;
+}
+
+.admin-reviews h2 {
+    color: #0d1b2a;
+    font-size: 2.2rem;
+}
+
+.admin-reviews h2 i {
+    color: #d4af37;
+    margin-left: 10px;
+}
+
+/* فلترة الآراء */
+.reviews-filter {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#search-reviews {
+    flex: 1;
+    padding: 12px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    color: #0d1b2a;
+}
+
+#filter-rating {
+    padding: 12px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    color: #0d1b2a;
+    background: white;
+    min-width: 150px;
+}
+
+/* قائمة الآراء للإدارة */
+.reviews-management-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-list-admin {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.review-card-admin {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 25px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s;
+}
+
+.review-card-admin:hover {
+    border-color: #d4af37;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
+}
+
+.review-card-header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.review-card-name-admin {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #0d1b2a;
+}
+
+.review-card-date-admin {
+    font-size: 0.85rem;
+    color: #a7b2c0;
+}
+
+.review-card-stars-admin {
+    color: #d4af37;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    direction: ltr;
+}
+
+.review-card-comment-admin {
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.review-actions-admin {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-review-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.delete-review-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* زر تسجيل الخروج */
+.logout-btn {
+    background: #e74c3c;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+/* رسائل التنبيه */
+.alert {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert i {
+    font-size: 1.2rem;
+}
+
+/* الاستجابة للجوال */
+@media (max-width: 768px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-table-container {
+        padding: 20px;
+        overflow-x: auto;
+    }
+    
+    .admin-table {
+        font-size: 0.85rem;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        padding: 12px 8px;
+    }
+    
+    .actions-cell {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .reviews-filter {
+        flex-direction: column;
+    }
+    
+    .reviews-list-admin {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .save-btn,
+    .cancel-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-dashboard h1 {
+        font-size: 2rem;
+    }
+    
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stat-icon {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+    
+    .admin-reviews h2 {
+        font-size: 1.8rem;
+    }
+}
+/* إضافات جديدة لصفحة الآراء */
+
+/* رابط المربعات القابل للنقر */
+.stat-card-link {
+    text-decoration: none;
+    display: block;
+}
+
+.stat-card.clickable {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.stat-card.clickable:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+    border-color: #d4af37;
+}
+
+.stat-card.clickable:hover .stat-link {
+    color: #d4af37;
+}
+
+.stat-link {
+    font-size: 0.85rem;
+    color: #a7b2c0;
+    margin-top: 8px;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-link i {
+    font-size: 0.8rem;
+}
+
+/* إحصائيات الآراء */
+.reviews-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.review-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+}
+
+.review-stat-card i {
+    font-size: 2rem;
+    color: #d4af37;
+}
+
+.review-stat-card h3 {
+    font-size: 0.9rem;
+    color: #a7b2c0;
+    margin-bottom: 5px;
+}
+
+.review-stat-card p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0d1b2a;
+    line-height: 1;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #0d1b2a;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.back-link:hover {
+    background: #d4af37;
+    transform: translateY(-2px);
+}
+
+/* جدول الآراء */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.reviews-table {
+    min-width: 800px;
+}
+
+.reviews-table th {
+    background: linear-gradient(135deg, #162840, #0d1b2a);
+}
+
+.reviews-table td {
+    vertical-align: middle;
+}
+
+.review-name {
+    font-weight: 700;
+    color: #0d1b2a;
+}
+
+.review-rating {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review-rating .stars {
+    color: #d4af37;
+    font-size: 1.1rem;
+}
+
+.review-rating .rating-number {
+    color: #a7b2c0;
+    font-size: 0.9rem;
+}
+
+.review-comment {
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+.review-date {
+    color: #a7b2c0;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.review-actions {
+    min-width: 100px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.review-delete-form {
+    margin: 0;
+}
+
+/* إزالة أنماط قسم إدارة الآراء القديم */
+.reviews-filter {
+    display: none;
+}
+
+.reviews-management-container {
+    display: none;
+}
+
+.reviews-list-admin {
+    display: none;
+}
+
+/* تعديل شريط التنقل في صفحة الآراء */
+.admin-reviews .admin-subtitle {
+    color: #a7b2c0;
+    margin-bottom: 30px;
+}
+
+/* استجابة للجوال */
+@media (max-width: 768px) {
+    .reviews-stats {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    
+    .review-stat-card {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .back-link {
+        justify-content: center;
+    }
+    
+    .review-comment {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+:root {
+    --admin-ink: #111111;
+    --admin-gold: #a57c37;
+    --admin-gold-light: #e9d095;
+    --admin-gold-accent: #d9b23e;
+    --admin-paper: #f7f1e8;
+    --admin-muted: #5f5a50;
+}
+
+.admin-dashboard,
+.admin-reviews {
+    background: var(--admin-paper);
+}
+
+.admin-dashboard h1,
+.admin-table-container h2,
+.card-header h2,
+.stat-info p,
+.admin-table td:nth-child(2),
+.review-name,
+.review-stat-card p,
+.admin-reviews h2,
+.form-group label {
+    color: var(--admin-ink);
+}
+
+.admin-dashboard h1 i,
+.admin-table-container h2 i,
+.admin-reviews h2 i,
+.review-stat-card i,
+.review-rating .stars,
+.modal-header h2 i,
+.close-btn:hover {
+    color: var(--admin-gold);
+}
+
+.admin-subtitle,
+.stat-info h3,
+.card-header p,
+.admin-table td:nth-child(4),
+.review-rating .rating-number,
+.review-date,
+.review-card-date-admin {
+    color: var(--admin-muted);
+}
+
+.stat-card,
+.admin-table-container,
+.admin-card,
+.section-selected-notice,
+.modal-content,
+.reviews-filter,
+.reviews-management-container,
+.review-card-admin,
+.review-stat-card {
+    background: #fffdf9;
+    border-color: #e9d095;
+}
+
+.stat-card:hover,
+.review-card-admin:hover {
+    border-color: #c49c5f;
+}
+
+.stat-icon {
+    background: linear-gradient(135deg, #c49c5f, #a57c37);
+}
+
+.admin-table thead,
+.reviews-table th,
+.modal-header {
+    background: #000000;
+}
+
+.admin-table th {
+    border-bottom-color: #d9b23e;
+}
+
+.admin-table tbody tr:nth-child(even),
+.admin-table tbody tr:hover,
+.admin-table tr {
+    background: #f7f1e8;
+}
+
+.action-btn,
+.save-btn,
+.back-link,
+.edit-btn,
+.view-btn {
+    background: #a57c37;
+    color: #000000;
+}
+
+.action-btn:hover,
+.save-btn:hover,
+.back-link:hover,
+.edit-btn:hover,
+.view-btn:hover {
+    background: #c49c5f;
+    color: #000000;
+}
+
+.form-group input,
+.form-group textarea,
+.admin-card input,
+.admin-card textarea,
+#search-reviews,
+#filter-rating {
+    background: #fffdf9;
+    color: #111111;
+    border-color: #e9d095;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+#search-reviews:focus,
+#filter-rating:focus {
+    border-color: #a57c37;
+    background: #ffffff;
+}
+
+.cancel-btn {
+    background: #5f5a50;
+    color: #ffffff;
+}
+
+.cancel-btn:hover {
+    background: #111111;
+}
+
+@media (max-width: 480px) {
+    .review-stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .review-stat-card i {
+        margin-bottom: 10px;
+    }
+}
