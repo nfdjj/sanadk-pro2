@@ -55,22 +55,22 @@ Route::get('/admin-secure-account', function () {
 })->name('admin.account')->middleware('admin.auth');
 
 Route::get('/hero', [HeroController::class, 'getHero']);
-Route::put('/hero', [HeroController::class, 'saveHero']);
-Route::delete('/hero', [HeroController::class, 'deleteHero']);
+Route::put('/hero', [HeroController::class, 'saveHero'])->middleware('admin.auth');
+Route::delete('/hero', [HeroController::class, 'deleteHero'])->middleware('admin.auth');
 Route::get('/service', [ServiceController::class, 'getService']);
-Route::put('/service', [ServiceController::class, 'saveService']);
-Route::delete('/service', [ServiceController::class, 'deleteService']);
+Route::put('/service', [ServiceController::class, 'saveService'])->middleware('admin.auth');
+Route::delete('/service', [ServiceController::class, 'deleteService'])->middleware('admin.auth');
 Route::get('/whyus', [WhyUsController::class, 'getWhyUs']);
-Route::put('/whyus', [WhyUsController::class, 'saveWhyUs']);
-Route::delete('/whyus', [WhyUsController::class, 'deleteWhyUs']);
+Route::put('/whyus', [WhyUsController::class, 'saveWhyUs'])->middleware('admin.auth');
+Route::delete('/whyus', [WhyUsController::class, 'deleteWhyUs'])->middleware('admin.auth');
 Route::get('/whous', [WhoUsController::class, 'getWhoUs']);
-Route::put('/whous', [WhoUsController::class, 'saveWhoUs']);
-Route::delete('/whous', [WhoUsController::class, 'deleteWhoUs']);
+Route::put('/whous', [WhoUsController::class, 'saveWhoUs'])->middleware('admin.auth');
+Route::delete('/whous', [WhoUsController::class, 'deleteWhoUs'])->middleware('admin.auth');
 
 Route::get('/opinions', [OpinionController::class, 'index']);
 Route::post('/opinions', [OpinionController::class, 'store']);
-Route::post('/opinions/{id}/approve', [OpinionController::class, 'approve']);
-Route::delete('/opinions/{id}', [OpinionController::class, 'destroy']);
+Route::post('/opinions/{id}/approve', [OpinionController::class, 'approve'])->middleware('admin.auth');
+Route::delete('/opinions/{id}', [OpinionController::class, 'destroy'])->middleware('admin.auth');
 
 Route::get('/reviews', function () {
     $opinions = Opinion::orderByDesc('created_at')->get();

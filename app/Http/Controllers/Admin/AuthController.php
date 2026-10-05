@@ -47,6 +47,10 @@ class AuthController extends Controller
      */
     public function showRegisterForm()
     {
+        if (Admin::query()->exists()) {
+            return redirect()->route('admin.auth.login');
+        }
+
         return view('admin.register');
     }
 
@@ -55,6 +59,10 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
+        if (Admin::query()->exists()) {
+            abort(404);
+        }
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:admins',
